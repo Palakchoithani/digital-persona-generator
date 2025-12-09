@@ -1,0 +1,3 @@
+# Require review from core team for changes in these folders
+/web/ @your-org/frontend-team
+/api/ @your-org/backend-team
