@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 node_modules/
 .env
 dist/
 build/
+=======
+/node_modules
+/dist
+/.env
+/.DS_Store
+/.idea
+/.vscode
+>>>>>>> 33c9f7d62211c4a7ae0dcae018c577618c477775
