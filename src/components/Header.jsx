@@ -1,30 +1,43 @@
-
 import React from "react";
-
-
-import { Link } from "react-router-dom";
- 
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
+  const location = useLocation();
+  
+  const isActive = (path) => location.pathname === path;
+  
   return (
-    <header
-      style={{
-        padding: "16px",
-        borderBottom: "1px solid #ddd",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      {/* Logo text */}
-      <h2 style={{ margin: 0 }}>Digital Persona Generator</h2>
+    <header className="header">
+      <div className="header-container">
+        <Link to="/" className="header-logo">
+          <span className="header-logo-icon">✨</span>
+          <span>Persona Gen</span>
+        </Link>
 
-      {/* Simple navigation menu */}
-      <nav style={{ display: "flex", gap: "16px" }}>
-        <Link to="/">Home</Link>
-        <Link to="/wizard">Wizard</Link>
-        <Link to="/results">Results</Link>
-        
-      </nav>
+        <nav className="header-nav">
+          <Link 
+            to="/" 
+            className={`nav-link ${isActive('/') ? 'active' : ''}`}
+          >
+            Home
+          </Link>
+          <Link 
+            to="/wizard" 
+            className={`nav-link ${isActive('/wizard') ? 'active' : ''}`}
+          >
+            Wizard
+          </Link>
+          <Link 
+            to="/results" 
+            className={`nav-link ${isActive('/results') ? 'active' : ''}`}
+          >
+            Results
+          </Link>
+          <Link to="/wizard" className="nav-cta">
+            Get Started
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 }
