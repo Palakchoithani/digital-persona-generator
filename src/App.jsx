@@ -4,18 +4,21 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Wizard from "./pages/Wizard";
 import Results from "./pages/Results";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 
 export default function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/wizard" element={<Wizard />} />
-        <Route path="/results" element={<Results />} />
-        
-      </Routes>
-    </Layout>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/wizard" element={<Wizard />} />
+          <Route path="/results" element={<Results />} />
+
+        </Routes>
+      </Layout>
+    </ThemeProvider>
   );
 }
 
