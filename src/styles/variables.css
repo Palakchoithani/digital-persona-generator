@@ -52,5 +52,73 @@
   --transition-fast: 150ms ease;
   --transition-base: 200ms ease;
   --transition-slow: 300ms ease;
+  
+  /* Header/Footer backgrounds */
+  --bg-header: rgba(15, 15, 26, 0.8);
+  --bg-footer: rgba(15, 15, 26, 0.6);
+  
+  /* Glass effect */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  
+  /* Input backgrounds */
+  --bg-input: var(--bg-card);
+  
+  /* Subtle backgrounds for hover states and elements */
+  --bg-hover-subtle: rgba(255, 255, 255, 0.05);
+  --bg-element-subtle: rgba(255, 255, 255, 0.1);
+  --bg-element-active: rgba(255, 255, 255, 0.2);
+  --bg-shimmer: rgba(255, 255, 255, 0.2);
+  --bg-bio: rgba(255, 255, 255, 0.03);
+  --bg-website-content: rgba(255, 255, 255, 0.02);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  /* Color Palette - Purple Theme (slightly adjusted for light mode) */
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #8b5cf6;
+  --color-secondary: #a855f7;
+  --color-secondary-hover: #9333ea;
+  
+  /* Background Colors */
+  --bg-dark: #f8f6fc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f0f9;
+  --bg-gradient-start: #f8f6fc;
+  --bg-gradient-end: #ede9f5;
+  
+  /* Text Colors */
+  --text-primary: #1f1633;
+  --text-secondary: #4a3d5c;
+  --text-muted: #7c6f8a;
+  
+  /* Border Colors */
+  --border-color: rgba(139, 92, 246, 0.2);
+  --border-color-hover: rgba(139, 92, 246, 0.4);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.15);
+  
+  /* Header/Footer backgrounds */
+  --bg-header: rgba(255, 255, 255, 0.9);
+  --bg-footer: rgba(248, 246, 252, 0.9);
+  
+  /* Glass effect */
+  --glass-bg: rgba(139, 92, 246, 0.05);
+  
+  /* Input backgrounds */
+  --bg-input: #ffffff;
+  
+  /* Subtle backgrounds for hover states and elements */
+  --bg-hover-subtle: rgba(139, 92, 246, 0.08);
+  --bg-element-subtle: rgba(139, 92, 246, 0.1);
+  --bg-element-active: rgba(139, 92, 246, 0.2);
+  --bg-shimmer: rgba(139, 92, 246, 0.15);
+  --bg-bio: rgba(139, 92, 246, 0.05);
+  --bg-website-content: rgba(139, 92, 246, 0.03);
 }
 
