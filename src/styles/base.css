@@ -20,6 +20,7 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background var(--transition-slow), color var(--transition-slow);
 }
 
 a {
@@ -53,7 +54,7 @@ button {
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
 }
