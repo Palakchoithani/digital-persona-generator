@@ -15,6 +15,7 @@ const schema = z.object({
 export default function Wizard() {
   const [step, setStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
   const navigate = useNavigate();
 
   const updatePersona = usePersonaStore((s) => s.updatePersona);
@@ -56,8 +57,15 @@ export default function Wizard() {
       }
     }
 
-    setStep((prev) => prev + 1);
-    reset({ input: "" });
+    // Trigger exit animation
+    setIsExiting(true);
+    
+    // Wait for fade out (100ms)
+    setTimeout(() => {
+      setStep((prev) => prev + 1);
+      reset({ input: "" });
+      setIsExiting(false);
+    }, 100);
   };
 
   const questions = [
@@ -91,40 +99,45 @@ export default function Wizard() {
     <div className="wizard">
       <Stepper step={step} />
 
-      <h2 className="wizard-question">
-        <span style={{ marginRight: '12px' }}>{questions[step].icon}</span>
-        {questions[step].text}
-      </h2>
+      <div 
+        key={step} 
+        className={`wizard-content-wrapper ${isExiting ? 'exiting' : ''}`}
+      >
+        <h2 className="wizard-question">
+          <span style={{ marginRight: '12px' }}>{questions[step].icon}</span>
+          {questions[step].text}
+        </h2>
 
-      <form onSubmit={handleSubmit(onNext)} className="wizard-form">
-        <input
-          {...register("input")}
-          placeholder={questions[step].placeholder}
-          className="wizard-input"
-          autoFocus
-        />
+        <form onSubmit={handleSubmit(onNext)} className="wizard-form">
+          <input
+            {...register("input")}
+            placeholder={questions[step].placeholder}
+            className="wizard-input"
+            autoFocus
+          />
 
-        {errors.input && (
-          <div className="wizard-error">
-            <span>⚠️</span>
-            <span>{errors.input.message}</span>
-          </div>
-        )}
-
-        <button type="submit" className="wizard-btn" disabled={isLoading}>
-          {isLoading ? (
-            <>
-              <span className="wizard-btn-loading">Generating...</span>
-              <span className="wizard-btn-icon">⏳</span>
-            </>
-          ) : (
-            <>
-              <span>{step === questions.length - 1 ? 'Generate Persona' : 'Continue'}</span>
-              <span className="wizard-btn-icon">→</span>
-            </>
+          {errors.input && (
+            <div className="wizard-error">
+              <span>⚠️</span>
+              <span>{errors.input.message}</span>
+            </div>
           )}
-        </button>
-      </form>
+
+          <button type="submit" className="wizard-btn" disabled={isLoading || isExiting}>
+            {isLoading ? (
+              <>
+                <span className="wizard-btn-loading">Generating...</span>
+                <span className="wizard-btn-icon">⏳</span>
+              </>
+            ) : (
+              <>
+                <span>{step === questions.length - 1 ? 'Generate Persona' : 'Continue'}</span>
+                <span className="wizard-btn-icon">→</span>
+              </>
+            )}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
