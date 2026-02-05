@@ -61,11 +61,31 @@ export default function Wizard() {
   };
 
   const questions = [
-    { text: "What's your name or persona name?", placeholder: "Enter your name...", icon: "👤" },
-    { text: "Describe your vibe in 2–3 words", placeholder: "e.g., Creative, Adventurous, Calm", icon: "✨" },
-    { text: "What are your favorite colors?", placeholder: "e.g., Blue, Purple, Teal (comma-separated)", icon: "🎨" },
-    { text: "What are your interests & hobbies?", placeholder: "e.g., Photography, Travel, Music", icon: "💡" },
-    { text: "Keywords that describe your personality", placeholder: "e.g., Minimalist, Tech-savvy, Nature lover", icon: "🏷️" },
+    {
+      text: "What's your name or persona name?",
+      placeholder: "Enter your name...",
+      icon: "👤",
+    },
+    {
+      text: "Describe your vibe in 2–3 words",
+      placeholder: "e.g., Creative, Adventurous, Calm",
+      icon: "✨",
+    },
+    {
+      text: "What are your favorite colors?",
+      placeholder: "e.g., Blue, Purple, Teal (comma-separated)",
+      icon: "🎨",
+    },
+    {
+      text: "What are your interests & hobbies?",
+      placeholder: "e.g., Photography, Travel, Music",
+      icon: "💡",
+    },
+    {
+      text: "Keywords that describe your personality",
+      placeholder: "e.g., Minimalist, Tech-savvy, Nature lover",
+      icon: "🏷️",
+    },
   ];
 
   // Completed
@@ -77,8 +97,8 @@ export default function Wizard() {
         <p className="wizard-complete-text">
           Your digital persona has been generated. Check out the results!
         </p>
-        <button 
-          onClick={() => navigate('/results')} 
+        <button
+          onClick={() => navigate("/results")}
           className="btn btn-gradient btn-lg"
         >
           ✨ View Your Persona
@@ -92,7 +112,7 @@ export default function Wizard() {
       <Stepper step={step} />
 
       <h2 className="wizard-question">
-        <span style={{ marginRight: '12px' }}>{questions[step].icon}</span>
+        <span style={{ marginRight: "12px" }}>{questions[step].icon}</span>
         {questions[step].text}
       </h2>
 
@@ -119,7 +139,11 @@ export default function Wizard() {
             </>
           ) : (
             <>
-              <span>{step === questions.length - 1 ? 'Generate Persona' : 'Continue'}</span>
+              <span>
+                {step === questions.length - 1
+                  ? "Generate Persona"
+                  : "Continue"}
+              </span>
               <span className="wizard-btn-icon">→</span>
             </>
           )}
@@ -128,4 +152,3 @@ export default function Wizard() {
     </div>
   );
 }
-
