@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { usePersonaStore } from "../store/personaStore";
-import { exportJSON, exportHTML } from "../utils/exportUtils.js";
+import { exportJSON, exportHTML,exportWebsiteBundle } from "../utils/exportUtils.js";
 
 const highlightIcons = ["🌟", "🎯", "🔥", "💫", "✨", "🎨", "💡", "🚀"];
 
@@ -131,7 +131,7 @@ const Results = () => {
       )}
 
       {/* ACTION BUTTONS */}
-      <div className="results-actions">
+      <div className="results-actions" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <button
           onClick={async () => await regeneratePersona()}
           className="results-btn results-btn-primary"
@@ -155,6 +155,14 @@ const Results = () => {
           <span className="results-btn-icon">🌐</span>
           Export Website HTML
         </button>
+
+          <button
+            onClick={() => exportWebsiteBundle(persona)}
+            className="results-btn results-btn-secondary"
+          >
+            <span className="results-btn-icon">📦</span>
+            Download Website Bundle
+          </button>
       </div>
     </div>
   );
